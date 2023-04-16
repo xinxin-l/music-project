@@ -1,7 +1,6 @@
 const { resolve } = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-// const isProduction = process.env.NODE_ENV === 'production';
-const isProduction = true;
+const isProduction = process.env.NODE_ENV === 'production';
 
 const path = require('path');
 const glob = require('glob');

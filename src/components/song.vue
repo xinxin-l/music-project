@@ -51,10 +51,10 @@
 import VLazyImage from 'v-lazy-image/v2';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { Resize } from '@cloudinary/url-gen/actions';
-import myWorker from './2.worker.js';
+// import myWorker from './2.worker.js';
 
 const cldInstance = new Cloudinary({ cloud: { cloudName: 'du8xpmd0e' } });
-const songWorker = myWorker();
+// const songWorker = myWorker();
 
 export default {
   data() {
@@ -93,13 +93,13 @@ export default {
         this.setId(id);
       });
     },
-    getWorkList(list) {
-      this.songWorker.postMessage(list);
-      this.songWorker.onmessage = function (e) {
-        this.workList = [...e.data];
-        this.loading = false;
-      };
-    },
+    // getWorkList(list) {
+    //   this.songWorker.postMessage(list);
+    //   this.songWorker.onmessage = function (e) {
+    //     this.workList = [...e.data];
+    //     this.loading = false;
+    //   };
+    // },
     handleImgUrl(url) {
       if (url) {
         let res = cldInstance
@@ -115,7 +115,7 @@ export default {
     this.getSong(8);
   },
   beforeDestroy() {
-    songWorker.terminate();
+    // songWorker.terminate();
   },
 };
 </script>
